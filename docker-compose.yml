@@ -1,0 +1,18 @@
+
+services:
+  mysql:
+    image: mysql:latest  # Официальный образ MySQL
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Qazwsx00  # Пароль для root
+      MYSQL_DATABASE: mydatabase         # Имя создаваемой базы данных
+      MYSQL_USER: glapin                 # Имя пользователя базы данных
+      MYSQL_PASSWORD: Qazwsx00         # Пароль пользователя базы данных
+    ports:
+      - "3305:3306"  # Пробрасываем порт для доступа
+    volumes:
+      - mysql_data:/var/lib/mysql  # Данные сохраняются в volume
+
+volumes:
+  mysql_data:
